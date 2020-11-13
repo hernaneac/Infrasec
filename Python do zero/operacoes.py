@@ -36,3 +36,7 @@ print('-----------')
 #Divisão
 ticket_medio=(pedido1 + pedido2) / 2
 print('O Valor do ticket médio é:',ticket_medio)
+#Multiplicacao
+dias_mes = 22
+faturamento= (ticket_medio) * 22
+print('O valor do faturamento mês é:',faturamento)
