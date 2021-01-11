@@ -7,3 +7,5 @@ Instalação em docker swarm
  -  fazer o deploy da stack (docker stack deploy -c docker-compose.yml infrasec)
  Senha padrão do zabbix usuário Admin senha zabbix
  Senha padrão do grafana usuário admin senha admin
+
+ OBS: Caso o dashboard indique um erro no tipo de encoding, informando que precisa ser utf-8 basta parar os serviços com scale=0 entrar no container do banco e executar o script.sql
