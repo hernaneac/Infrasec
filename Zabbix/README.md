@@ -1,4 +1,4 @@
-Stack com Zabbix Server versão 5.2.2
+Stack com Zabbix Server versão 5.2.3
 Grafana
 
 Instalação em docker swarm
