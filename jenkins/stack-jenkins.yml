@@ -1,0 +1,40 @@
+version: '3.2'
+
+services:
+
+    ###########
+    # JENKINS #
+    ###########    
+    jenkins:
+        image: jenkins/jenkins
+        networks:
+            infrasec_jenkins:
+                aliases:
+                    - jenkins
+        ports:
+          - '8000:8000'
+        environment:
+            JAVA_OPTS: -Duser.timezone=America/Sao_Paulo
+            GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no -i /run/secrets/id_rsa"
+        secrets:
+            - source: id_rsa
+              target: id_rsa
+              uid: '1000'
+              gid: '1000'
+              mode: 0600
+        deploy:
+            placement:
+                constraints: [node.role == manager]
+            mode: replicated
+            replicas: 1
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - /home/opc/infra/jenkins:/var/jenkins_home
+
+secrets:
+    id_rsa:
+        file : keys/id_rsa
+
+networks:
+    infrasec_jenkins:
+        driver: overlay
