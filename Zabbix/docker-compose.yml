@@ -74,7 +74,7 @@ services:
       - mysql
       - zabbix-server
   zabbix-agent:
-    image: zabbix/zabbix-agent2:alpine-5.2.3
+    image: zabbix/zabbix-agent:ubuntu-5.2.3
     user: root
     networks:
       - network-zabbix
